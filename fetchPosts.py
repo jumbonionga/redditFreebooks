@@ -14,7 +14,6 @@ def fetchPosts():
     Fetch the NEW 1000 posts on r/freeebooks in the MONTH
     '''
 
-    posts = request.json()
     filtered_posts = []
 
     try:
@@ -24,8 +23,9 @@ def fetchPosts():
     except:
         print("An error occurred")
 
-    for post in posts['data']['children']:
-        if post['data']['link_flair_text'] != 'Expired':
-            filtered_posts.append(post['data'])
+    posts = request.json()
+
+    filtered_posts = [post['data'] for post in posts['data']
+                      ['children'] if post['data']['link_flair_text'] != 'Expired']
 
     return json.dumps(filtered_posts)
