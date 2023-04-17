@@ -31,7 +31,7 @@
             <tr>
                 {% endif %}
                 <td>
-                    {% if book.thumbnail != 'default' and book.over_18 != True %}
+                    {% if (book.thumbnail != 'default' or book.thumbnail != 'spoiler') and book.over_18 != True %}
                     <img src="{{ book.thumbnail }}" width="{{ book.thumbnail_width }}"
                         height="{{ book.thumbnail_height }}">
                     {% endif %}
