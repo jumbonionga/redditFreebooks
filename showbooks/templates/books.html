@@ -19,6 +19,7 @@
                 <th></th>
                 <th>Book title</th>
                 <th>Category</th>
+                <th>Post date</th>
                 <th></th>
             </tr>
         </thead>
@@ -40,6 +41,7 @@
                 </td>
                 <td>{{ book.title }}</td>
                 <td>{{ book.link_flair_text }}</td>
+                <td>{{ book.created }}</td>
                 <td><a href="{{ book.url }}" target="_blank">Link</a></td>
             </tr>
             {% endfor %}
